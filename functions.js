@@ -46,15 +46,6 @@ function capitalizeFirstLetter(str) {
 let text = "hello";
 let capitalizedText = capitalizeFirstLetter(text);
 console.log(capitalizedText); 
-
-//6
-function capitalizeWords(str) {
-    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-}
-let text = "hello world";
-let capitalizedText = capitalizeWords(text);
-console.log(capitalizedText); 
-
 //7
 function fillArrayWithNumbers(n) {
     let arr = [];
