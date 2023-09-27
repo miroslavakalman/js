@@ -156,65 +156,6 @@ for (let i = 0; i < daysOfWeek.length; i++) {
     }
 }
 
-//20
-let daysOfWeek = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-let currentDay = new Date().getDay(); 
-
-for (let i = 0; i < daysOfWeek.length; i++) {
-    if (i === currentDay) {
-        document.write("<em>" + daysOfWeek[i] + "</em>");
-    } else {
-        document.write(daysOfWeek[i] + "");
-    }
-}
-
-//21
-
-let obj = {
-employee1: 100,
-employee2: 200,
-employee3: 300,
-employee4: 400,
-employee5: 500,
-employee6: 600,
-employee7: 700,
-};
-
-for (let key in obj) {
-    obj[key] *= 1.1; 
-}
-console.log(obj);
-
-//22
-let obj = {
-employee1: 100,
-employee2: 200,
-employee3: 300,
-employee4: 400,
-employee5: 500,
-employee6: 600,
-employee7: 700,
-};
-
-for (let key in obj) {
-    if (obj[key] <= 400) {
-        obj[key] *= 1.1; 
-    }
-}
-
-console.log(obj);
-
-//23
-let arr1 = [1, 2, 3, 4, 5];
-let arr2 = [6, 7, 8, 9, 10];
-let resultObj = {};
-
-for (let i = 0; i < arr1.length; i++) {
-    resultObj[arr1[i]] = arr2[i];
-}
-
-console.log(resultObj);
-
 //24
 
 let obj = {1: 6, 2: 7, 3: 8, 4: 9, 5: 10};
