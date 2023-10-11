@@ -146,4 +146,15 @@ let arr = [2, 4, 6, 8];
 
 let filteredArr = arr.some((num, index) => num * index < 30);
 console.log(filteredArr); 
-*/
+
+//Оператор spread в JavaScript
+function func(num1, num2, num3, num4, num5) {
+	return num1 + num2 + num3 + num4 + num5;
+}
+console.log(func(...[1, 2, 3, 4, 5]));
+
+//Дан массив с числами. Используя Math.min и spread выведите на экран минимальное значение массива.
+let arr = [1, 2, 3, 4, 5]
+let max = Math.min(...arr);
+console.log(min);*/
+
