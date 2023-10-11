@@ -156,5 +156,16 @@ console.log(func(...[1, 2, 3, 4, 5]));
 //Дан массив с числами. Используя Math.min и spread выведите на экран минимальное значение массива.
 let arr = [1, 2, 3, 4, 5]
 let max = Math.min(...arr);
-console.log(min);*/
+console.log(min);
+
+//Оператор rest 
+//Напишите функцию, которая будет принимать параметрами произвольное количество чисел и возвращать их среднее арифметическое.
+function avgArithm(...args){
+    if(args.length === 0){
+        return 0;
+    }
+    const sum = args.reduce((total, num) => total + num, 0);
+    return sum / args.length;
+}
+console.log(avgArithm(5, 10, 20));*/
 
