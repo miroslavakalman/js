@@ -135,6 +135,34 @@ console.log(c);
 console.log(w);
 console.log(h);
 
+//309
+//1
+func( ['John', 'Smit', 'development', 
+	'programmer', 2000] );
+function func([name, surname, department, position, salary]){
+    console.log(name);
+    console.log(surname);
+    console.log(department);
+    console.log(position);
+    console.log(salary);
+}
+//2
+func( ['John', 'Smit', 'development', 
+	'programmer', 2000] );
+function func([name, surname, info]){
+    console.log(name);
+    console.log(surname);
+    console.log(info);
+}
+//3
+func( ['John', 'Smit', 'development'] );
+function func([name, surname, department, position = 'джуниор']){
+    console.log(name);
+    console.log(surname);
+    console.log(department);
+    console.log(position);
+}
+
 */
 
 
