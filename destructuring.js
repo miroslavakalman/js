@@ -1,3 +1,4 @@
+
 //Деструктуризация массивов в JavaScript
 В следующем коде части массива записываются в соответствующие переменные:
 
@@ -84,10 +85,56 @@ if (arr[3] !== undefined) {
 } else {
 	position = 'trainee';
 }
+
+
 let arr = ['John', 'Smit', 'development', 'programmer'];
 let [name, surname, department, position = 'trainee'] = arr;
 console.log(position);
+
+//304
+let options = {
+	color: 'red',
+	width:  400,
+	height: 500,
+};
+let {color, width, height} = options;
+
+console.log(color);  
+console.log(width); 
+console.log(height); 
+
+//305
+let options = {
+	color: 'red',
+	width:  400,
+	height: 500,
+};
+let {color: c, width: w, height: h} = options;
+console.log(c);  
+console.log(w); 
+console.log(h); 
+//306
+let options = {
+	width:  400,
+	height: 500,
+};
+let {color = 'black', width, height} = options;
+
+console.log(color);
+console.log(width);
+console.log(height);
+
+//307
+let options = {
+	width:  400,
+	height: 500,
+};
+let {color:c = 'black', width:w, height:h} = options;
+
+console.log(c);
+console.log(w);
+console.log(h);
+
 */
 
-//Функции по умолчанию при деструктуризации массива в JavaScript
 
