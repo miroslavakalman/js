@@ -11,6 +11,7 @@ let department = arr[2];
 let position   = arr[3];
 let salary     = arr[4];
 Переделайте этот код через деструктуризацию согласно изученной теории.
+	
 let arr = ['John', 'Smit', 'development', 
 	'programmer', 2000]; 
 let [name, surname, department, position, salary] = arr;
@@ -33,6 +34,7 @@ let department = arr[2];
 let position   = arr[3];
 let salary     = arr[4];
 Переделайте этот код через деструктуризацию согласно изученной теории.
+	
 function func() {
 	return ['John', 'Smit', 'development', 
 		'programmer', 2000]; 
@@ -164,7 +166,7 @@ function func([name, surname, department, position = 'джуниор']){
 }
 //310
 function func({color, width, height}) {
-	console.log(color);
+    console.log(color);
     console.log(width);
     console.log(height);
 }
