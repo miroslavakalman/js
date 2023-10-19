@@ -174,19 +174,284 @@
     }
   });
 </script>
+<br>
+<p>№ 11. Даны несколько абзацев и кнопка. По нажатию на кнопку запишите в конец каждого абзаца его порядковый номер.</p>
+    <button id="numberButton11">Абзацы</button>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus vero expedita libero labore blanditiis sunt ipsa quasi numquam quisquam asperiores autem, non tempora ipsum ea eligendi dicta earum. Facere, ab.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde, placeat minima, provident harum molestiae consectetur velit delectus deleniti, blanditiis asperiores corporis. Nesciunt officia tenetur quos quo, minus cum fuga odio.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum neque in soluta impedit omnis tenetur voluptatem recusandae perferendis dicta ratione iure culpa voluptatibus nulla, laboriosam perspiciatis blanditiis ab suscipit corporis.</p>
+    
+    <script>
+      const numberButton11 = document.getElementById("numberButton11");
+      const paragraphs = document.querySelectorAll("p");
+    
+      numberButton11.addEventListener("click", function () {
+        paragraphs.forEach(function (paragraph, index) {
+          paragraph.textContent += " (Абзац № " + (index + 1) + ")";
+        });
+      });
+    </script>
+  <br>
+  <p>№12. Даны ссылки. Добавьте в конец каждой ссылки ее href в круглых скобках.</p>
+<a href="https://fa.ru">ссылочка</a>
+<a href="https://fa.ru">ссылочка</a>
+<a href="https://fa.ru">ссылочка</a>
 
+<script>
+  const links = document.querySelectorAll("a");
 
+  links.forEach(function (link) {
+    const href = link.getAttribute("href");
+    link.textContent += " (" + href + ")";
+  });
+</script>
+<br>
+<p>№13. Даны ссылки. Если ссылка начинается с http://, то добавьте ей в конец стрелку → (делается так: &rarr;).</p>
+<a href="http://google.com">ссылочка</a>
+<a href="http://google.com">ссылочка</a>
+<a href="http://google.com">ссылочка</a>
 
+<script>
+  const links1 = document.querySelectorAll("a");
 
+  links1.forEach(function (link) {
+    const href = link.getAttribute("href");
+    if (href.startsWith("http://")) {
+      link.textContent += " →";
+    }
+  });
+</script>
+<br>
+<p>№14. Даны несколько абзацев с числами. По нажатию на любой абзац запишите в него квадрат числа, которое в нем находится.</p>
 
+<p>2</p>
+<p>5</p>
+<p>8</p>
 
+<script>
+  const paragrs = document.querySelectorAll("p");
 
+  paragrs.forEach(function (paragraph) {
+    const number = parseInt(paragraph.textContent);
+    if (!isNaN(number)) {
+      paragraph.textContent = number * number;
+    }
+  });
+</script>
+<br>
+<p>№15. Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса узнайте день недели (словом), который приходится на эту дату.</p>
 
+<input type="text" id="dateInput15">
+<p id="dayOfWeek"></p>
 
+<script>
+  const dateInput15 = document.getElementById("dateInput15");
+  const dayOfWeek = document.getElementById("dayOfWeek");
 
+  dateInput15.addEventListener("blur", function () {
+    const date = new Date(dateInput15.value);
+    const daysOfWeek = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "сб"];
+    dayOfWeek.textContent = daysOfWeek[date.getDay()];
+  });
+</script>
+<br>
+<p>№16. Дан инпут. Реализуйте кнопочки +1, -1, которые будут увеличивать или уменьшать на 1 значение инпута. Сделайте так, чтобы это значение не могло стать меньше нуля.</p>
 
+<input type="number" id="valueInput16">
+<button id="incrementButton">+1</button>
+<button id="decrementButton">-1</button>
 
+<script>
+  const valueInput16 = document.getElementById("valueInput16");
+  const incrementButton = document.getElementById("incrementButton");
+  const decrementButton = document.getElementById("decrementButton");
 
+  incrementButton.addEventListener("click", function () {
+    valueInput16.value = parseInt(valueInput16.value) + 1;
+  });
 
+  decrementButton.addEventListener("click", function () {
+    const value = parseInt(valueInput16.value);
+    if (value > 0) {
+      valueInput16.value = value - 1;
+    }
+  });
+</script>
+<br>
+<p>№17. Дан инпут. Даны абзацы. Пусть в этот инпут записывается суммарное количество нажатий по этим абзацам.</p>
+
+<input type="text" id="clickCountInput17">
+<p>Lorem ipsum dolor sit amet.</p>
+<p>Lorem ipsum dolor sit amet.</p>
+<p>Lorem ipsum dolor sit amet.</p>
+
+<script>
+  const clickCountInput17 = document.getElementById("clickCountInput17");
+  const ps = document.querySelectorAll("p");
+  let clickCount = 0;
+
+  ps.forEach(function (paragraph) {
+    paragraph.addEventListener("click", function () {
+      clickCount++;
+      clickCountInput17.value = clickCount;
+    });
+  });
+</script>
+<br>
+<p>№18. На странице есть дивы. В них есть текст. Обойдите все дивы и обрежьте тот текст, который в них стоит так, чтобы он стал длиной 10 символов. И добавьте троеточие в конец обрезанного текста</p>
+
+<div>Lorem ipsum dolor sit..</div>
+<div>Lorem ipsum dolor sit.</div>
+<div>Lorem ipsum dolor sit amet consectetur.</div>
+
+<script>
+  const divs = document.querySelectorAll("div");
+
+  divs.forEach(function (div) {
+    const text = div.textContent;
+    if (text.length > 10) {
+      div.textContent = text.substring(0, 10) + "...";
+    }
+  });
+</script>
+<br>
+<p>№19. Дан инпут и кнопка. По нажатию на кнопку сгенерируйте случайную строку из 8-ми символов и запишите в инпут.</p>
+
+<input type="text" id="randomStringInput">
+<button id="generateRandomStringButton">Cгенерить</button>
+
+<script>
+  const randomStringInput = document.getElementById("randomStringInput");
+  const generateRandomStringButton = document.getElementById("generateRandomStringButton");
+
+  generateRandomStringButton.addEventListener("click", function () {
+    const randomString = generateRandomString(8);
+    randomStringInput.value = randomString;
+  });
+
+  function generateRandomString(length) {
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let randomString = "";
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      randomString += charset[randomIndex];
+    }
+    return randomString;
+  }
+</script>
+<br>
+<p>№20. Дан инпут и кнопка. Пользователь вводит в инпут какую-то строку. По нажатию на кнопку перемешайте введенные символы случайным образом и запишите ее обратно в инпут.</p>
+
+<input type="text" id="shuffleInput">
+<button id="shuffleButton">Перемешать</button>
+
+<script>
+  const shuffleInput = document.getElementById("shuffleInput");
+  const shuffleButton = document.getElementById("shuffleButton");
+
+  shuffleButton.addEventListener("click", function () {
+    const inputText = shuffleInput.value;
+    const shuffledText = shuffleString(inputText);
+    shuffleInput.value = shuffledText;
+  });
+
+  function shuffleString(input) {
+    const array = input.split("");
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array.join("");
+  }
+</script>
+<br>
+<p>№21. Дан инпут, кнопка и абзац. В инпут вводится температура в градусах Фаренгейта. По клику на кнопку выведите в абзац температуру в градусах Цельсия.</p>
+
+<input type="text" id="fahrenheitInput21">
+<button id="convertButton21">Перевод</button>
+<p id="celsiusResult21"></p>
+
+<script>
+  const fahrenheitInput21 = document.getElementById("fahrenheitInput21");
+  const convertButton21 = document.getElementById("convertButton21");
+  const celsiusResult21 = document.getElementById("celsiusResult21");
+
+  convertButton21.addEventListener("click", function () {
+    const fahrenheit = parseFloat(fahrenheitInput21.value);
+    if (!isNaN(fahrenheit)) {
+      const celsius = (fahrenheit - 32) * (5/9);
+      celsiusResult21.textContent = "Гр. цельсия: " + celsius.toFixed(2);
+    }
+  });
+</script>
+<br>
+<p>№22. Дан инпут, кнопка и абзац. В инпут вводится число. По нажатию на кнопку выведите в абзац факториал этого числа.</p>
+
+<input type="number" id="factorialInput">
+<button id="calculateFactorialButton">Вычислить</button>
+<p id="factorialResult"></p>
+<script>
+  const factorialInput = document.getElementById("factorialInput");
+  const calculateFactorialButton = document.getElementById("calculateFactorialButton");
+  const factorialResult = document.getElementById("factorialResult");
+
+  calculateFactorialButton.addEventListener("click", function () {
+    const number = parseInt(factorialInput.value);
+    if (!isNaN(number) && number >= 0) {
+      const result = calculateFactorial(number);
+      factorialResult.textContent = "Пол. факториал: " + result;
+    } else {
+      factorialResult.textContent = "Ошибка";
+    }
+  });
+
+  function calculateFactorial(n) {
+    if (n === 0 || n === 1) {
+      return 1;
+    } else {
+      return n * calculateFactorial(n - 1);
+    }
+  }
+</script>
+<br>
+
+<p>№23. Даны 3 инпута, кнопка и абзац. В инпуты вводятся коэффициенты квадратного уравнения. По нажатию на кнопку найдите корни этого уравнения и выведите их в абзац.</p>
+
+<input type="number" id="aInput">
+<input type="number" id="bInput">
+<input type="number" id="cInput">
+<button id="calculateRootsButton">Решить</button>
+<p id="rootsResult"></p>
+
+<script>
+  const aInput = document.getElementById("aInput");
+  const bInput = document.getElementById("bInput");
+  const cInput = document.getElementById("cInput");
+  const calculateRootsButton = document.getElementById("calculateRootsButton");
+  const rootsResult = document.getElementById("rootsResult");
+
+  calculateRootsButton.addEventListener("click", function () {
+    const a = parseFloat(aInput.value);
+    const b = parseFloat(bInput.value);
+    const c = parseFloat(cInput.value);
+
+    if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+      const discriminant = b * b - 4 * a * c;
+
+      if (discriminant > 0) {
+        const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        rootsResult.textContent = `Корень1: ${root1.toFixed(2)}, Корень 2: ${root2.toFixed(2)}`;
+      } else if (discriminant === 0) {
+        const root = -b / (2 * a);
+        rootsResult.textContent = `Корень: ${root.toFixed(2)}`;
+      } else {
+        rootsResult.textContent = "Нет корней";
+      }
+    } else {
+      rootsResult.textContent = "Ошибка";
+    }
+  });
+</script>
 </body>
 </html>
