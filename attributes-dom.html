@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--<input id="elem" value="text">
+    <input id="elems" class="www zzz">
+    <input id="elem1">
+    <div id="element" data-text="str">text</div>
+    <br>
+    <div data-num="1">text</div>
+    <div data-num="2">text</div>
+    <div data-num="3">text</div>
+    <div data-num="4">text</div>
+    <div data-num="5">text</div>
+    <div id="elem" data-product-price="1000" data-product-amount="5">
+        товар яблоки
+    </div>-->
+    <p id="elem" class="www ggg zzz"></p>
+    <script>
+        /*let elem = document.querySelector('#elem');
+        let value = elem.getAttribute('value');
+        console.log(value);
+
+        let elems = document.getElementsByClassName("elem");
+        let classValue = elem.getAttribute("class");
+        console.log(classValue);
+
+        let elem1 = document.querySelector('#elem1');
+        elem1.setAttribute('value', 'text');
+        elem1.removeAttribute('value');
+        console.log(elem1.hasAttribute('value'));
+
+        let element = getElementById("element");
+        element.addEventListener("click", function(){
+            let dataText = this.getAttribute("data-text");
+            this.textContent += dataText;
+        });
+        let divs = document.querySelectorAll("div[data-num]");
+        divs.forEach(function(div) {
+        div.addEventListener("click", function() {
+        let dataNum = this.getAttribute("data-num");
+        this.textContent += dataNum;
+            });
+        });
+        
+        let elem = document.getElementById("elem");
+        elem.addEventListener("click", function() {
+            let price = parseInt(this.getAttribute("data-product-price"));
+            let amount = parseInt(this.getAttribute("data-product-amount"));
+            let totalPrice = price * amount;
+            this.textContent += " Стоимость: " + totalPrice + " руб.";
+        });
+        */
+
+        let elem = document.querySelector('#elem');
+        let length = elem.classList.length;
+        console.log(length);
+        let classNames = elem.classList;
+        elem.classList.add('xxx');
+        elem.classList.remove('zzz');
+        let contains = elem.classList.contains('ggg');
+        console.log(contains);
+        elem.classList.toggle('www');
+        for (let className of classNames) {
+            console.log(className);
+        }
+        
+       </script>
+</body>
+</html>
