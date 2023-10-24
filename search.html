@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--<ul id="elem">
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+    </ul>
+<script>
+    let elem = document.getElementById("elem");
+    let text = elem.firstElementChild;
+    let text1 = elem.lastElementChild;
+    text1.style.color = "red";
+    text.style.color = "red";
+    let children = elem.getElementsByTagName("li");
+    for(let i = 0; i < children.length; i++){
+        children[i].textContent += '!';
+    }
+</script>
+<div>
+	<ul>
+		<li>text</li>
+		<li>text</li>
+		<li id="elem">text</li>
+		<li>text</li>
+		<li>text</li>
+	</ul>
+</div>
+
+<script>
+    let elem = document.getElementById("elem");
+    let parent = elem.parentElement;
+    parent.style.border = "0.5px solid red";
+</script>
+
+<header>
+	<div>
+		<p>
+			<span id="elem"></span>
+		</p>
+	</div>
+</header>
+<script>
+    let elem = document.getElementById("elem");
+    let parent = elem.closest("div");
+</script>
+
+<header>
+	<div class="www">
+		<p class="www">
+			<span id="elem"></span>
+		</p>
+	</div>
+</header>
+
+<script>
+    let elem = document.getElementById("elem");
+    let parent = elem.closest('.www');
+</script>
+
+<div id="elem"></div>
+<script>
+    let elem = document.getElementById("elem");
+    elem.textContent = "faokfwofiwo";
+</script>
+-->
+<p class="www">elem 1</p>
+<p class="www">elem 2</p>
+<p class="www">elem 3</p>
+
+<script>
+let elems = document.getElementsByClassName('www');
+
+for (let elem of elems) {
+	elem.style.color = "red";
+}
+</script>
+</body>
+</html>
