@@ -47,5 +47,41 @@
         });
     </script>
     -->
+
+    <div id="ab">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+    <button id = "crossed">crossed</button>
+    <button id = "bold">bold</button>
+    <button id = "red">red</button>
+    <style>
+        .crossed{
+            text-decoration: line-through;
+        }
+
+        .bold{
+            font-weight: bold;
+        }
+
+        .red{
+            color: red;
+        }
+    </style>
+    <script>
+        let ab = document.getElementById("ab");
+        let button1 = document.getElementById("crossed");
+        let button2 = document.getElementById("bold");
+        let button3 = document.getElementById("red");
+
+        button1.addEventListener("click", function(){
+            ab.classList.toggle('crossed');
+        });
+
+        button2.addEventListener("click", function(){
+            ab.classList.toggle('bold');
+        });
+
+        button3.addEventListener("click", function(){
+            ab.classList.toggle('red');
+        });
+    </script>
 </body>
 </html>
