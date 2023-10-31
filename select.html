@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выпадающие списки</title>
+</head>
+<body>
+    <!--
+    <p>Дан селект, абзац и кнопка. По клику на кнопку выведите текст выбранного пункта списка в абзац.</p>
+    <select id="select">
+        <option>one</option>
+        <option selected>two</option>
+        <option>three</option>
+    </select>
+    <div id = "av">e</div>
+    <button id = "as">click</button>
+    <script>
+        document.getElementById("as").addEventListener("click", function () {
+            const select = document.getElementById("select");                               
+            const selectedOption = select.options[select.selectedIndex];
+            const result = document.getElementById("av");
+            result.textContent = "Выбранный пункт: " + selectedOption.text;
+        });
+    </script>
+    
+    <P>Сделайте выпадающий список годов от 2020 до 2030. При выборе какого-нибудь пункта списка выведите сообщение о том, високосный этот год или нет.    </P>
+    <select id="yearSelect">
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+        <option value="2029">2029</option>
+        <option value="2030">2030</option>
+      </select>
+      <p id="resultPara"></p>
+      <button onclick="checkLeapYear()">Проверить на високосность</button>
+      
+    <script>
+        function checkLeapYear() {
+            const yearSelect = document.getElementById("yearSelect");
+            const selectedYear = parseInt(yearSelect.value);
+            const resultPara = document.getElementById("resultPara");
+
+            if ((selectedYear % 4 === 0 && selectedYear % 100 !== 0) || selectedYear % 400 === 0) {
+                resultPara.innerText = selectedYear + ' високосный год.';
+            } else {
+                resultPara.innerText = selectedYear + ' не високосный год.';
+            }
+        }
+    </script>
+    -->
+    <p>Сделайте выпадающий список с названиями дней недели. В качестве атрибутов value пунктов списка добавьте номера дней недели от 1 до 7. По изменению списка выведите на экран сообщение о том, выбран выходной день или рабочий.</p>
+    <select id="daySelect">
+        <option value="1">пн</option>
+        <option value="2">вт</option>
+        <option value="3">ср</option>
+        <option value="4">чт</option>
+        <option value="5">пт</option>
+        <option value="6">сб</option>
+        <option value="7">вс</option>
+      </select>
+  
+    <script>
+        
+    </script>
+</body>
+</html>
