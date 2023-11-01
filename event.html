@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы работы с объектом Event в JavaScript</title>
+</head>
+<body>
+    <!--
+    <button id="elem">text</button>
+    <script>
+        elem.addEventListener('click', function(event) {
+	    console.log(event); 
+    });
+    </script>
+    
+
+    <div id="elem">0 : 0</div>
+    <script>
+        let elem = document.getElementById('elem');
+
+        document.addEventListener('mousemove', function(event) {
+            elem.innerHTML = event.clientX + ' : ' + event.clientY;
+        });
+    </script>
+-->
+    <!--2-->
+    <!--
+    <button id="elem">text</button>
+    <script>
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', func);
+        elem.addEventListener('dblclick', func);
+
+        function func() {
+            if (event.type === 'click') {
+                elem.style.backgroundColor = 'green';
+            } else if (event.type === 'dblclick') {
+                elem.style.backgroundColor = 'red';
+            }
+        }
+    </script>
+-->
+    
+    <!--3-->
+    <!--
+    <ul id="elem">
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+    </ul>
+
+    <style>
+    ul {
+        padding: 30px;
+        border: 1px solid red;
+    }
+
+    li {
+        list-style-type: none;
+        margin-bottom: 20px;
+        border: 1px dashed black;
+    }
+    </style>
+
+    <script>
+        let ulElement = document.getElementById('elem');
+
+        ulElement.addEventListener('click', function (event) {
+            if (event.target.tagName === 'LI') {
+                event.target.textContent += '!';
+            } else if (event.target.tagName === 'UL') {
+                console.log('Клик был по тегу ul');
+            }
+        });
+    </script>
+    
+    <p>Сделайте инпут, который будет по вводу выводить значения введенных клавиш и их коды.    </p>
+    <input>
+    
+    <script>
+        let elem = document.querySelector('input');
+        elem.addEventListener('keypress', function(event) {
+	
+        });
+        elem.addEventListener('keypress', function(event) {
+            console.log(event.key);
+        });
+
+        elem.addEventListener('keypress', function(event) {
+            console.log(event.code);
+        });
+    </script>
+    -->
