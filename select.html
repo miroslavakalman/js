@@ -6,55 +6,7 @@
     <title>Выпадающие списки</title>
 </head>
 <body>
-    <!--
-    <p>Дан селект, абзац и кнопка. По клику на кнопку выведите текст выбранного пункта списка в абзац.</p>
-    <select id="select">
-        <option>one</option>
-        <option selected>two</option>
-        <option>three</option>
-    </select>
-    <div id = "av">e</div>
-    <button id = "as">click</button>
-    <script>
-        document.getElementById("as").addEventListener("click", function () {
-            const select = document.getElementById("select");                               
-            const selectedOption = select.options[select.selectedIndex];
-            const result = document.getElementById("av");
-            result.textContent = "Выбранный пункт: " + selectedOption.text;
-        });
-    </script>
-    
-    <P>Сделайте выпадающий список годов от 2020 до 2030. При выборе какого-нибудь пункта списка выведите сообщение о том, високосный этот год или нет.    </P>
-    <select id="yearSelect">
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
-        <option value="2023">2023</option>
-        <option value="2024">2024</option>
-        <option value="2025">2025</option>
-        <option value="2026">2026</option>
-        <option value="2027">2027</option>
-        <option value="2028">2028</option>
-        <option value="2029">2029</option>
-        <option value="2030">2030</option>
-      </select>
-      <p id="resultPara"></p>
-      <button onclick="checkLeapYear()">Проверить на високосность</button>
-      
-    <script>
-        function checkLeapYear() {
-            const yearSelect = document.getElementById("yearSelect");
-            const selectedYear = parseInt(yearSelect.value);
-            const resultPara = document.getElementById("resultPara");
-
-            if ((selectedYear % 4 === 0 && selectedYear % 100 !== 0) || selectedYear % 400 === 0) {
-                resultPara.innerText = selectedYear + ' високосный год.';
-            } else {
-                resultPara.innerText = selectedYear + ' не високосный год.';
-            }
-        }
-    </script>
-    -->
+    <!---
     <p>Сделайте выпадающий список с названиями дней недели. В качестве атрибутов value пунктов списка добавьте номера дней недели от 1 до 7. По изменению списка выведите на экран сообщение о том, выбран выходной день или рабочий.</p>
     <select id="daySelect">
         <option value="1">пн</option>
@@ -65,9 +17,195 @@
         <option value="6">сб</option>
         <option value="7">вс</option>
       </select>
-  
+      <p id="result"></p>
+      
     <script>
-        
+        let daySelect = document.getElementById("daySelect");
+        let result = document.getElementById("result");
+        daySelect.addEventListener('change', function(){
+            let selectedValue = daySelect.value;
+
+            if (selectedValue >= 1 && selectedValue <= 5){
+            result.textContent = "Выбранный вами день - рабочий";
+            }else{
+            result.textContent = "Выбранный вами день - выходной";
+            }
+        });
     </script>
+  
+    <p>Сделайте выпадающий список с названиями месяцев. Сделайте так, чтобы JavaScript по умолчанию выбирал в этом списке текущий месяц.</p>
+    <label for="monthSelect">Выберите месяц:</label>
+    <select id="monthSelect"></select>
+    
+    <script>
+        let monthSelect = document.getElementById('monthSelect');
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        console.log(currentMonth);
+
+        let months = [
+            'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+            'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+        ];
+
+        for (let i = 0; i < months.length; i++) {
+            let option = document.createElement('option');
+            option.value = i + 1; 
+            option.text = months[i];
+            monthSelect.appendChild(option);
+
+            if (i === currentMonth) {
+                option.selected = true;
+            }
+        }
+    </script>
+
+
+    <p>Сделайте выпадающий список с названиями дней недели. Сделайте так, чтобы по JavaScript по умолчанию выбирал в этом списке текущий день.</p>
+    <label for="daySelect">Выберите день недели:</label>
+    <select id="daySelect">
+        <option value="1">Понедельник</option>
+        <option value="2">Вторник</option>
+        <option value="3">Среда</option>
+        <option value="4">Четверг</option>
+        <option value="5">Пятница</option>
+        <option value="6">Суббота</option>
+        <option value="7">Воскресенье</option>
+    </select>
+
+    <label for="inputNumber">Введите номер дня:</label>
+    <input type="text" id="inputNumber">
+    
+    <script>
+        const daySelect = document.getElementById('daySelect');
+        const inputNumber = document.getElementById('inputNumber');
+
+        const currentDate = new Date();
+        const currentDay = currentDate.getDay() + 1; // Пн = 1, Вт = 2, ..., Вс = 7
+        daySelect.value = currentDay;
+
+        inputNumber.addEventListener('blur', function() {
+            const selectedValue = parseInt(inputNumber.value);
+            if (selectedValue >= 1 && selectedValue <= 7) {
+                daySelect.value = selectedValue;
+            } else {
+                alert('Введите корректный номер дня (от 1 до 7).');
+                inputNumber.value = '';
+            }
+        });
+    </script>
+
+    <p>Переберите все пункты списка циклом и в конец текста каждого пункта добавьте значение его атрибута value.</p>
+    <label for="daySelect">Выберите день недели:</label>
+    <select id="daySelect">
+        <option value="1">Понедельник</option>
+        <option value="2">Вторник</option>
+        <option value="3">Среда</option>
+        <option value="4">Четверг</option>
+        <option value="5">Пятница</option>
+        <option value="6">Суббота</option>
+        <option value="7">Воскресенье</option>
+    </select>
+    
+    <script>
+        const daySelect = document.getElementById('daySelect');
+        const options = daySelect.getElementsByTagName('option');
+
+        for (let i = 0; i < options.length; i++) {
+            const option = options[i];
+            const optionValue = option.value;
+            const optionText = option.textContent;
+
+            // доб значение атрибута value в конец текста пункта
+            option.textContent = optionText + ' (' + optionValue + ')';
+        }
+    </script>
+
+
+    <p>Переберите пункты списка циклом и для выбранного пункта в конец текста добавьте восклицательный знак, а для невыбранных пунктов - вопросительный.</p>
+    <label for="daySelect">Выберите день недели:</label>
+    <select id="daySelect">
+        <option value="1">Понедельник</option>
+        <option value="2">Вторник</option>
+        <option value="3">Среда</option>
+        <option value="4">Четверг</option>
+        <option value="5">Пятница</option>
+        <option value="6">Суббота</option>
+        <option value="7">Воскресенье</option>
+    </select>
+    
+    <script>
+        const daySelect = document.getElementById('daySelect');
+        const options = daySelect.getElementsByTagName('option');
+
+        daySelect.addEventListener('change', function() {
+            for (let i = 0; i < options.length; i++) {
+                const option = options[i];
+                if (option.selected) {
+                    option.textContent = option.textContent + '!';
+                } else {
+                    option.textContent = option.textContent + '?';
+                }
+            }
+        });
+    </script>
+
+
+    <p>Дан выпадающий список и кнопка. По клику на кнопку сделайте отмеченным последний пункт списка.</p>
+    <select id="daySelect">
+        <option value="1">Понедельник</option>
+        <option value="2">Вторник</option>
+        <option value="3">Среда</option>
+        <option value="4">Четверг</option>
+        <option value="5">Пятница</option>
+        <option value="6">Суббота</option>
+        <option value="7">Воскресенье</option>
+    </select>
+    <button id="button1">click</button>
+
+    <script>
+
+        button1.addEventListener("click", function(){
+            let select = document.getElementById('daySelect');
+            let lastOption =  daySelect.lastElementChild;
+            lastOption.selected = true;
+        })
+    </script>
+
+
+    <p>Дан селект и кнопка. По нажатию на кнопку выведите на экран текст отмеченного пункта списка.</p>
+    <select id="mySelect">
+        <option value="item1">Пункт 1</option>
+        <option value="item2">Пункт 2</option>
+        <option value="item3">Пункт 3</option>
+    </select>
+    <button id="myButton">Вывести</button>
+    <p id="outputText"></p>
+    <script>
+            document.getElementById("myButton").addEventListener("click", function() {
+            let select = document.getElementById("mySelect");
+            let selectedOption = select.options[select.selectedIndex];
+            let outputText = document.getElementById("outputText");
+            outputText.textContent = "Выбранный пункт: " + selectedOption.text;
+        });
+    </script>
+
+    <p>Дан селект и кнопка. По нажатию на кнопку добавьте в конец текста выбранного пункта восклицательный знак.</p>
+    <select id="mySelect">
+        <option value="item1">Пункт 1</option>
+        <option value="item2">Пункт 2</option>
+        <option value="item3">Пункт 3</option>
+    </select>
+    <button id="myButton">Вывести</button>
+    <p id="outputText"></p>
+    <script>
+            document.getElementById("myButton").addEventListener("click", function() {
+            let select = document.getElementById("mySelect");
+            let selectedOption = select.options[select.selectedIndex];
+            let outputText = document.getElementById("outputText");
+            outputText.textContent = "Выбранный пункт с восклицательным знаком: " + selectedOption.text + "!";
+        });
+    </script>
+-->
 </body>
 </html>
