@@ -94,4 +94,18 @@
             console.log(event.code);
         });
     </script>
+
+	<p>Дан элемент. Сделайте так, чтобы по клику на него он красился в красный цвет, но только если в момент клика нажата клавиша Alt.</p>
+    <div>Lorem, ipsum.</div>
+
+    <script>
+        let div = document.querySelector('div');
+
+        div.addEventListener('click', function(event){
+            if (event.altKey) {
+                div.style.color = 'red';
+            }
+        });
+
+    </script>
     -->
