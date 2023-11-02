@@ -108,4 +108,29 @@
         });
 
     </script>
-    -->
+    
+    
+    <ul id="elem">
+    <li>text</li>
+    <li>text</li>
+    <li>text</li>
+    <li>text</li>
+    <li>text</li>
+</ul>
+
+<script>
+    const list = document.getElementById("elem");
+    const items = list.getElementsByTagName("li");
+
+    list.addEventListener("click", function (event) {
+        const clickedItem = event.target;
+        if (event.ctrlKey) {
+            clickedItem.textContent += "1";
+        } else if (event.shiftKey) {
+            clickedItem.textContent += "2";
+        }
+    });
+</script>
+-->
+</body>
+</html>
