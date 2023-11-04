@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймеры</title>
+</head>
+<body>
+    <h1>Практика на таймеры и работу с DOM в JavaScript</h1>
+    <!--
+    <p>Дана кнопка. Дан абзац, текстом которого является число. По нажатию на кнопку запустите таймер, который каждую секунду будет увеличивать текст абзаца на 1.</p>
+    <button id="startButton">Старт</button>
+    <p id="counter">0</p>
+
+    <script>
+    const startButton = document.getElementById("startButton");
+    const counter = document.getElementById("counter");
+    let count = 0;
+    
+    startButton.addEventListener("click", () => {
+        setInterval(() => {
+        count++;
+        counter.textContent = count;
+        }, 1000);
+    });
+    </script>
+  
+    <p>Дана кнопка. Дан абзац, текстом которого является число, например, 10. По нажатию на кнопку запустите таймер, который каждую секунду будет уменьшать текст абзаца на 1. Как только значение абзаца станет равно нулю - остановите таймер.</p>
+    <button id="startButton">Старт</button>
+    <p id="counter">10</p>
+
+    <script>
+    const startButton = document.getElementById("startButton");
+    const counter = document.getElementById("counter");
+    let count = 10;
+
+    startButton.addEventListener("click", () => {
+        const timer = setInterval(() => {
+        if (count > 0) {
+            count--;
+            counter.textContent = count;
+        } else {
+            clearInterval(timer);
+        }
+        }, 1000);
+    });
+    </script>
+    
+    <p>Дан инпут с числом. Сделайте так, чтобы каждую секунду в нем появлялся квадрат того числа, которое в нем записано.</p>
+    <input type="number" id="numberInput">
+    <p id="result"></p>
+
+    <script>
+    const numberInput = document.getElementById("numberInput");
+    const result = document.getElementById("result");
+
+    numberInput.addEventListener("input", () => {
+        setInterval(() => {
+        const value = Number(numberInput.value);
+        const square = value * value;
+        result.textContent = `Квадрат числа: ${square}`;
+        }, 1000);
+    });
+    </script>
+    
+    <p>Дан инпут. В него вводится число. По потери фокуса сделайте так, чтобы в абзаце ниже начал тикать обратный отсчет, начиная с введенного числа. Когда отсчет дойдет до нуля - он должен закончится.</p>
+    <input type="number" id="numberInput">
+    <p id="countdown"></p>
+    <script>
+    const numberInput = document.getElementById("numberInput");
+    const countdown = document.getElementById("countdown");
+
+    numberInput.addEventListener("blur", () => {
+        let count = Number(numberInput.value);
+        const timer = setInterval(() => {
+        countdown.textContent = count;
+        count--;
+        if (count < 0) {
+            clearInterval(timer);
+        }
+        }, 1000);
+    });
+    </script>
+    
+    <p>Дан инпут, кнопка и абзац. В инпут вводится какое-то число. По нажатию на кнопку запишите введенное число в текст абзаца и запустите обратный отсчет в абзаце: пусть каждую секунду число в абзаце уменьшается на единицу, пока не дойдет до нуля.</p>
+    <input type="number" id="numberInput">
+    <button id="startButton">Старт</button>
+    <p id="countdown"></p>
+
+    <script>
+    const numberInput = document.getElementById("numberInput");
+    const startButton = document.getElementById("startButton");
+    const countdown = document.getElementById("countdown");
+
+    startButton.addEventListener("click", () => {
+        let count = Number(numberInput.value);
+        const timer = setInterval(() => {
+        countdown.textContent = count;
+        count--;
+        if (count < 0) {
+            clearInterval(timer);
+        }
+        }, 1000);
+    });
+    </script>
+    
+    <p>Дан абзац и две кнопки. Сделайте так, чтобы по нажатию на первую кнопку в абзаце начал тикать таймер от 1 до бесконечности, а по нажатию на вторую таймер останавливался.</p>
+    <p id="timer">0</p>
+    <button id="startButton">Старт</button>
+    <button id="stopButton">Стоп</button>
+
+    <script>
+    const timer = document.getElementById("timer");
+    const startButton = document.getElementById("startButton");
+    const stopButton = document.getElementById("stopButton");
+    let count = 0;
+    let timerInterval;
+
+    startButton.addEventListener("click", () => {
+        timerInterval = setInterval(() => {
+        count++;
+        timer.textContent = count;
+        }, 1000);
+    });
+
+    stopButton.addEventListener("click", () => {
+        clearInterval(timerInterval);
+    });
+    </script>
+   
+    <p>Дан абзац. Сделайте так, чтобы каждую секунду он менял свой цвет с красного на зеленый и наоборот.</p>
+    <p id="colorChangingText">Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+
+    <script>
+    const colorChangingText = document.getElementById("colorChangingText");
+    let isRed = true;
+
+    setInterval(() => {
+        if (isRed) {
+        colorChangingText.style.color = "green";
+        } else {
+        colorChangingText.style.color = "red";
+        }
+        isRed = !isRed;
+    }, 1000);
+    </script>
+    -->
+    <p>Если выводить на экран каждую секунду текущий момент времени, то можно сделать тикающие часы. Реализуйте такие же часики, как показано ниже в образце.</p>
+    <p id="clock"></p>
+
+    <script>
+    const clock = document.getElementById("clock");
+
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, "0");
+        const minutes = now.getMinutes().toString().padStart(2, "0");
+        const seconds = now.getSeconds().toString().padStart(2, "0");
+        clock.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+    </script>
+</body>
+</html>
