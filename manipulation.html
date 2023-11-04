@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--1-->
+    <!--<ol id="elem"></ol>
+    <script>
+        let parent = document.querySelector('#elem');
+        let li = document.createElement('li');
+        li.textContent = 'item';
+
+        parent.appendChild(li);
+    </script>-->
+    <!--1-2-->
+    <!--
+    <ol id="elem"></ol>
+    <button id="button">click me</button>
+
+    <script>
+        let parent = document.querySelector('#elem');
+        let button = document.querySelector('#button');
+
+        button.addEventListener('click', function(){
+            let li = document.createElement('li');
+            li.textContent = 'item';
+
+            parent.appendChild(li);
+        });
+    </script>-->
+
+    <!--2-->
+    <!--
+    <ol id="elem"></ol>
+    <button id="button">click me</button>
+
+    <script>
+        let parent = document.querySelector('#elem');
+        let button = document.querySelector('#button');
+
+        button.addEventListener('click', function(){
+            let li = document.createElement('li');
+            li.textContent = 'item';
+            parent.appendChild(li);
+
+            li.addEventListener('click', function(){
+                li.textContent = li.textContent + "!";
+            });
+        });
+    </script>
+    -->
+    <!--3-->
+    <!--
+    <ul id="parent"></ul>
+    <script>
+        let parent = document.querySelector('#parent');
+        for (let i = 1; i <= 10; i++) {
+            let li = document.createElement('li');
+            li.textContent = i;
+            parent.appendChild(li);
+        }
+    </script>
+    -->
+    <!--4-->
+    <!--
+    <div id="parent"></div>
+    <p id="result"></p>
+    <script>
+        let parent = document.querySelector('#parent');
+        let result = document.querySelector('#result');
+        for (let i = 1; i <= 5; i++) {
+            let input = document.createElement('input');
+            input.textContent = i;
+            parent.appendChild(input);
+
+            input.addEventListener('blur', function(){
+                result.textContent = input.textContent;
+            });
+        }
+    </script>
+    -->
+    <!--5-1-->
+    <!--
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        let elems = document.querySelectorAll('li');
+
+        for (let elem of elems){
+            elem.addEventListener('click', function() {
+                elem.remove();
+            });
+        }
+    </script>
+    -->
+    <!--5-2-->
+    <!--
+    <ul id="parent">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <input type="submit" id="button">
+
+    <script>
+        let parent = document.querySelector('#parent');
+        let elems = document.querySelectorAll('li');
+        let button = document.querySelector('#button');
+
+        button.addEventListener('click', function(){
+                let last = parent.lastElementChild;
+                if (last){
+                    last.remove();
+                }
+        });
+    </script>
+    -->
+    <!--6-->
+    <!--
+    <ul id="elem">
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+    </ul>
+
+    <script>
+        let parent = document.querySelector('#elem');
+        let li1 = document.createElement('li');
+        li1.textContent = "finish";
+        parent.append(li1);
+        let li0 = document.createElement('li');
+        li0.textContent = "start";
+        parent.prepend(li0);
+    </script>-->
+    <!--7(1, 2)-->
+   <!--
+    <ul id="parent">
+        <li>text</li>
+        <li>text</li>
+        <li id="elem">text</li>
+        <li>text</li>
+        <li>text</li>
+    </ul>
+
+    <script>
+        let parent = document.querySelector('#parent');
+        let elem = document.querySelector('#elem');
+        let li = document.createElement('li');
+        li.textContent = 'new';
+        parent.insertBefore(li, elem);
+
+        li.addEventListener('click', function(){
+            li.textContent = li.textContent + "!";
+        });
+    </script>
+    -->
+    <!--8-1-->
+    <!--
+    <div id="elem" style="border: 1px solid 
+	red;"> 
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+    </div>
+
+    <script>
+        let parent = document.querySelector('#elem');
+        let div = document.createElement('div');
+        div.textContent = "!!!";
+        parent.insertAdjacentElement('beforeBegin',div);
+    </script>
+    -->
+    <!--8-2-->
+    <!--
+    <div id="elem" style="border: 1px solid 
+	red;"> 
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+    </div>
+
+    <script>
+        let parent = document.querySelector('#elem');
+        let div = document.createElement('div');
+        div.textContent = "!!!";
+        parent.insertAdjacentElement('afterEnd',div);
+    </script>
+    -->
+    <!--8(3,4)-->
+    <!--
+    <div id="elem" style="border: 1px solid 
+	red;"> 
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+    </div>
+
+    <script>
+        let parent = document.querySelector('#elem');
+        let div = document.createElement('div');
+        div.textContent = "!!!";
+        parent.insertAdjacentElement('afterBegin',div);
+        //parent.insertAdjacentElement('beforeEnd',div);
+    </script>-->
+
+    <!--9-->
+    <!--
+    <div id="elem" style="border: 1px solid red;"> 
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+    </div>
+    <script>
+        let elem = document.querySelector('#elem');
+        elem.insertAdjacentHTML('beforeBegin', '<div class="www"><p>text</p><p>text</p><input></div>')
+    </script>
+    -->
+
+    <!--10-->
+    <!--
+    <div id="parent">
+    <input id="elem">
+    <button>clone</button>
+    </div>
+    <script>
+        let parent = document.querySelector('#parent');
+        let elem = document.querySelector('#elem');
+        let button = document.querySelector('button');
+
+        button.addEventListener('click', function(){
+            let clone = elem.cloneNode(true);
+            parent.appendChild(clone);
+        });
+    </script>
+    -->
+
+    <!--11-1-->
+    <!--
+    <div id="elem" class="www"></div>
+    <script>
+        let elem = document.querySelector('#elem');
+        console.log(elem.matches('div.www'));
+        console.log(elem.matches('div'));
+    </script>
+    -->
+    <!--11-2-->
+    <!--
+    <div id="elem1">
+        <p id="elem2"></p>
+    </div>
+    
+    <script>
+        let elem1 = document.querySelector('#elem1');
+        let elem2 = document.querySelector('#elem2');
+        
+        let contains = elem1.contains(elem2);
+        console.log(contains);
+    </script>
+    -->
+</body>
+</html>
