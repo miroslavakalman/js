@@ -168,25 +168,11 @@
             table.appendChild(tr);
         }
     </script>
-   -->
+
+   <p>Модифицируйте предыдущую задачу так, чтобы в ячейках таблицы были записаны четные числа в промежутке от 2 до 50.</p>
    <table id="table"></table>
 
-   <style>
-        table {
-            border: 1px solid #000;
-            width: 600px;
-            height: 600px;
-            box-sizing: border-box;
-            border-collapse: collapse;
-            margin: 50px auto;
-        }
 
-        tr, td {
-            border: 1px solid #000;
-            box-sizing: border-box;
-
-        }
-    </style>
 
     <script>
         let table = document.querySelector('#table');
@@ -204,5 +190,239 @@
             table.appendChild(tr);
         }
     </script>
+
+    <p>Дан массив:
+        let arr = [[1, 2, 3], [4, 5, 6], 
+            [7, 8, 9], [10, 11, 12]]; 
+        Не подсматривая в теоретическую часть урока, выведите элементы приведенного массива в виде HTML таблицы table.</p>
+    <table id="table"></table>
+    <script>
+        let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]; 
+        let table = document.querySelector('#table');
+
+        for (let subArr of arr) {
+            let tr = document.createElement('tr');
+            
+            for (let elem of subArr) {
+                let td = document.createElement('td');
+                td.textContent = elem;
+                tr.appendChild(td);
+            }
+            
+            table.appendChild(tr);
+        }
+    </script>
+       
+    
+    <p>Модифицируйте предыдущую задачу так, чтобы в таблицу записывались не элементы, а квадраты этих элементов.</p>
+    <table id="table"></table>
+    <script>
+        let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]; 
+        let table = document.querySelector('#table');
+
+        for (let subArr of arr) {
+            let tr = document.createElement('tr');
+            
+            for (let elem of subArr) {
+                let td = document.createElement('td');
+                td.textContent = elem * elem;
+                tr.appendChild(td);
+            }
+            
+            table.appendChild(tr);
+        }
+    </script>
+    
+     <p>Дан следующий массив с работниками:
+        let employees = [
+            {name: 'employee1', age: 30, salary: 400},
+            {name: 'employee2', age: 31, salary: 500},
+            {name: 'employee3', age: 32, salary: 600},
+        ];
+        Выведите элементы этого массива в виде HTML таблицы.</p>
+    <table id="table"></table>
+
+    <script>
+        let employees = [
+        {name: 'employee1', age: 30, salary: 400},
+        {name: 'employee2', age: 31, salary: 500},
+        {name: 'employee3', age: 32, salary: 600},
+    ];
+
+    let table = document.getElementById('table');
+        for (let employee of employees) {
+            let tr = document.createElement('tr');
+            
+            let td1 = document.createElement('td');
+            td1.textContent = employee.name;
+            tr.appendChild(td1);
+            
+            let td2 = document.createElement('td');
+            td2.textContent = employee.age;
+            tr.appendChild(td2);
+            //Модифицируйте предыдущую задачу так, чтобы по клику на любую ячейку с возрастом ее содержимое увеличивалось на 1.
+            td2.addEventListener("click", function(){
+                td2.textContent = parseFloat(td2.textContent) + 1;
+            });
+
+            let td3 = document.createElement('td');
+            td3.textContent = employee.salary;
+            tr.appendChild(td3);
+            //Модифицируйте предыдущую задачу так, чтобы по клику на любую ячейку с зарплатой ее содержимое увеличивалось на 10%.
+            td3.addEventListener("click", function(){
+                td3.textContent = parseFloat(td3.textContent) + td3.textContent * 0.1;
+            });
+
+            table.appendChild(tr);
+    }
+    </script>
+   
+    <p>Сделайте кнопку, по нажатию на которую в таблицу будет добавляться новый ряд.</p>
+    <table id="table"></table>
+    <button id="button">click-click</button>
+    <script>
+        let button = document.querySelector('#button');
+        let table = document.querySelector('#table');
+        let tr = document.createElement('tr');
+
+        button.addEventListener("click", function(){
+            let td = document.createElement('td');
+            tr.appendChild(td);
+            table.appendChild(tr);
+        });
+        
+        
+       
+    </script>
+
+    <style>
+        table {
+            border: 1px solid #000;
+            width: 600px;
+            height: 600px;
+            box-sizing: border-box;
+            border-collapse: collapse;
+            margin: 50px auto;
+        }
+
+        tr, td {
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+    </style>
+   
+    <p>Добавление колонок?????????????</p>
+    <p>Дана также кнопка. Сделайте так, чтобы по нажатию на кнопку таблица увеличивалась на один ряд и на одну колонку.</p>
+    <table id="table">
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <button id="button">click-click</button>
+
+    <style>
+        td {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+    }
+    </style>
+
+    <script>
+        let button = document.querySelector('#button');
+        let table = document.querySelector('#table');
+        let tr = document.createElement('tr');
+
+        button.addEventListener("click", function(){
+            let td = document.createElement('td');
+            tr.appendChild(td);
+           
+
+            let trs = document.querySelectorAll('#table tr');
+            for (let tr of trs) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+            }
+        });
+    </script>
+   
+
+     <p>Изменение ячеек HTML таблицы на JavaScript
+     Пусть дана некоторая HTML таблица с числами и кнопка. По нажатию на кнопку увеличьте число в каждой ячейки таблицы в два раза.</p>
+    <table id="table"></table>
+    <button id="button1">click-click</button>
+    <script>
+        let table = document.querySelector('#table');
+        let button1 = document.querySelector('#button1');
+        let number = 1;
+
+        for (let i = 0; i < 5; i++) {
+            let tr = document.createElement('tr');
+
+            for (let j = 0; j < 5; j++) {
+                let td = document.createElement('td');
+                td.textContent = number;
+                number++;
+                tr.appendChild(td);
+            }
+
+            table.appendChild(tr);
+        }
+
+        button1.addEventListener("click", function(){
+            let tds = document.querySelectorAll('#table td');
+
+            for (let td of tds) {
+                td.textContent = parseInt(td.textContent) * 2;
+            }
+        });
+    </script>
+
+    <style>
+        table {
+            border: 1px solid #000;
+            width: 600px;
+            height: 600px;
+            box-sizing: border-box;
+            border-collapse: collapse;
+            margin: 50px auto;
+        }
+
+        tr, td {
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+    </style>
+
+
+    <p>Самоудаление новых элементов на JavaScript</p>
+    <p>Сделайте так, чтобы по клику на кнопку в список добавлялся новый элемент. Сделайте так, чтобы любая li удалялась по клику на нее. Речь идет как о тех li, которые уже есть в списке, так о новых, созданных после нажатия на кнопку.</p>
+    <ul id="parent">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <input type="submit" id="button">
+
+    <script>
+        let parent = document.getElementById('parent');
+        let button = document.getElementById('button');
+
+        button.addEventListener('click', function(){
+            let li = document.createElement('li');
+            li.textContent = parent.children.length +1;
+            parent.appendChild(li);
+        });
+
+        li.addEventListener('click', function(){
+            this.remove();
+        });
+    </script>
+    -->
 </body>
 </html>
