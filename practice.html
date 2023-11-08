@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практика</title>
+</head>
+<body>
+    <!--
+    <p>Создание элементов из массива на JavaScript </p>
+    <p>Модифицируйте мой код так, чтобы по клику на абзац к его содержимому прибавлялась единица.</p>
+    <div id="parent"></div>
+
+    <script>
+        let parent = document.querySelector('#parent');
+        let arr = [1, 2, 3, 4, 5];
+
+        for (let elem of arr) {
+            let p = document.createElement('p');
+            p.textContent = elem;       
+            parent.appendChild(p);
+
+            parent.addEventListener("click", function(){
+               p.textContent = parseFloat(p.textContent) + 1;
+            });
+        }
+    </script>
+  
+
+    <p>Практика на создание списков ul на JavaScript</p>
+    <p>Дан ul. Дан массив. Вставьте элементы этого массива в конец ul так, чтобы каждый элемент стоял в своем li.</p>
+    <p>Модифицируйте предыдущую задачу так, чтобы по клику на любой из вставленных элементов на экран выводился текст этого элемента.    </p>
+    <p>Модифицируйте предыдущую задачу так, чтобы по клику на li ей в конец добавлялся '!'.</p>
+    <p>Модифицируйте предыдущую задачу так, чтобы по повторное нажатие на li не приводило к добавлению второго '!'.</p>
+    <ul id="elem"></ul>
+
+    <script>
+        let parent =  document.querySelector('#elem');
+        let arr = [1, 2, 3, 4, 5]
+
+        for (let i = 0; i < arr.length; i++) {
+        let li = document.createElement("li");
+        
+        li.addEventListener("click", function(){
+            this.innerText = arr[i];
+
+            if (li.textContent.endsWith != "!"){
+                li.textContent = li.textContent + "!";
+            }
+        });
+
+        elem.appendChild(li);
+        };
+    </script>
+    
+
+    <p>Создание HTML таблиц на JavaScript </p>
+    <p>Дана пустая HTML таблица. С помощью двух вложенных циклов for заполните эту таблицу 5-ю рядами с 5-ю колонками.</p>
+
+    <table id="table"></table>
+
+    <script>
+        let table = document.querySelector('#table');
+
+        for (let i = 0; i < 5; i++) {
+        let tr = document.createElement('tr');
+
+        for (let j = 0; j < 5; j++) {
+        let td = document.createElement('td');
+        tr.appendChild(td);
+        }
+    
+    table.appendChild(tr);
+    }
+    </script>
+ 
+
+    <p>Модифицируйте предыдущую задачу так, чтобы таблица создавалась размером 10 рядов на 5 колонок.</p>
+
+        <table id="table"></table>
+
+        <script>
+        let table = document.querySelector('#table');
+
+        for (let i = 0; i < 10; i++) {
+            let tr = document.createElement('tr');
+
+            for (let j = 0; j < 5; j++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+            }
+ 
+            table.appendChild(tr);
+        }
+        </script>
+    
+
+    <p>Модифицируйте предыдущую задачу так, чтобы в каждую td добавлялся текст 'x'.</p>
+    <table id="table"></table>
+
+    <script>
+        let table = document.querySelector('#table');
+
+        for (let i = 0; i < 10; i++) {
+        let tr = document.createElement('tr');
+        
+        for (let j = 0; j < 5; j++) {
+            let td = document.createElement('td');
+            td.textContent = 'x';
+            tr.appendChild(td);
+        }
+
+        table.appendChild(tr);
+        }
+    </script>
+    
+
+    <p>Реализуйте генератор таблиц, ширина и высота таблиц задается в двух инпутах (например, таблица 5 на 10 ячеек).</p>
+
+    <label for="width">Ширина таблицы:</label>
+    <input type="number" id="width" value="5">
+
+    <label for="height">Высота таблицы:</label>
+    <input type="number" id="height" value="10">
+
+    <button onclick="generateTable()">Создать таблицу</button>
+
+    <table id="table"></table>
+
+    <script>
+    function generateTable() {
+        let table = document.querySelector('#table');
+    
+
+        let width = document.getElementById('width').value;
+        let height = document.getElementById('height').value;
+
+        for (let i = 0; i < height; i++) {
+            let tr = document.createElement('tr');
+        
+            for (let j = 0; j < width; j++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+            }
+        table.appendChild(tr);
+        }
+    }
+    </script>
+
+    <p>Последовательное заполнение HTML таблиц</p>
+    <p>Выведите на экран HTML таблицу размером 5 рядов на 5 колонок так, чтобы в ее ячейках последовательно стояли числа от 1 до 25.</p>
+    <table id="table"></table>
+    <script>
+        let table = document.querySelector('#table');
+        let number = 1;
+
+        for (let i = 0; i < 5; i++) {
+            let tr = document.createElement('tr');
+
+            for (let j = 0; j < 5; j++) {
+                let td = document.createElement('td');
+                td.textContent = number;
+                number++;
+                tr.appendChild(td);
+            }
+
+            table.appendChild(tr);
+        }
+    </script>
+   -->
+   <table id="table"></table>
+
+   <style>
+        table {
+            border: 1px solid #000;
+            width: 600px;
+            height: 600px;
+            box-sizing: border-box;
+            border-collapse: collapse;
+            margin: 50px auto;
+        }
+
+        tr, td {
+            border: 1px solid #000;
+            box-sizing: border-box;
+
+        }
+    </style>
+
+    <script>
+        let table = document.querySelector('#table');
+        let number = 2;
+
+        for (let i = 0; i < 5; i++) {
+            let tr = document.createElement('tr');
+
+            for (let j = 0; j < 5; j++) {
+                let td = document.createElement('td');
+                td.textContent = number;
+                number += 2;
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+    </script>
+</body>
+</html>
