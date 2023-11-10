@@ -423,6 +423,372 @@
             this.remove();
         });
     </script>
-    -->
+  
+    <p>Ссылка на удаление элемента на JavaScript  </p>
+    <div id="parent">
+        <p id="elem">text</p>
+        <a href="#" id="remove">remove</a>
+    </div>
+
+    <script>
+    let removeLink = document.querySelector('#remove');
+    let parentDiv = document.querySelector('#parent');
+
+    removeLink.addEventListener('click', function(event) {
+        let elemToBeRemoved = document.querySelector('#elem');
+        if (elemToBeRemoved) {
+            parentDiv.removeChild(elemToBeRemoved);
+        }
+        event.preventDefault();
+    });
+    </script>
+
+    <p>474</p>
+    <p>Дан тег ul. Добавьте в конец каждого тега li ссылку на удаления этого li из списка.    </p>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script>
+        let lis = document.querySelectorAll('ul li');
+        lis.forEach(li => {
+            let removeLink = document.createElement('a');
+            removeLink.href = '#';
+            removeLink.textContent = 'remove';
+            li.appendChild(removeLink);
+
+            removeLink.addEventListener('click', function (event) {
+                li.remove();
+                event.preventDefault();
+            });
+        });
+    </script>
+
+    <p>Редактирование отдельного элемента на JavaScript</p> 
+    <p>475</p>
+
+    <div id="parent">
+        <p id="elem">text</p>
+        <input id="input">
+    </div>
+
+    <script>
+        let elem = document.querySelector('#elem');
+        let input = document.querySelector('#input');
+
+        input.value = elem.textContent; 
+        input.addEventListener('input', function() {
+            elem.textContent = this.value;
+        });
+    </script>
+
+    <p>Появление инпута</p>
+    <div id="parent">
+        <p id="elem">text</p>
+    </div>
+
+    <script>
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', function() {
+            let input = document.createElement('input');
+            input.value = elem.textContent;
+
+            input.addEventListener('blur', function() {
+                elem.textContent = this.value;
+                this.remove(); 
+            });
+
+            elem.textContent = ''; 
+            elem.appendChild(input); 
+        });
+    </script>
+  
+    <p>Прячем текст при редактировании элемента на JavaScript </p>
+    <p>476</p>
+    <div id="parent">
+        <p id="elem">text</p>
+    </div>
+
+   <script>
+    let elem = document.querySelector('#elem');
+
+    function handleEdit() {
+        let input = document.createElement('input');
+        input.value = elem.textContent;
+        
+        elem.textContent = '';
+        elem.appendChild(input);
+        
+        input.addEventListener('blur', function() {
+            elem.textContent = this.value;
+            elem.addEventListener('click', handleEdit); 
+        });
+        
+        elem.removeEventListener('click', handleEdit);
+    }
+
+    elem.addEventListener('click', handleEdit);
+   </script>
+
+
+    <p>Редактирование в группе элементов на JavaScript</p>
+    <p>477</p>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script>
+        let ul = document.querySelector('ul');
+
+        ul.addEventListener('click', function (e) {
+            if (e.target.tagName === 'LI') {
+                let li = e.target;
+                let input = document.createElement('input');
+                input.value = li.textContent;
+
+                input.addEventListener('blur', function () {
+                    li.textContent = this.value;
+                });
+
+                li.textContent = '';
+                li.appendChild(input);
+                input.focus(); 
+            }
+        });
+    </script>
+ 
+
+    <p>Одновременное редактирование и удаление элементов</p>
+    <p>478</p>
+    <p>1<p>
+    <div id="parent">
+        <p><span>text1</span></p>
+        <p><span>text2</span></p>
+        <p><span>text3</span></p>
+    </div>
+
+    <script>
+        let parent = document.getElementById('parent');
+        let paragraphs = parent.getElementsByTagName('p');
+        for (let paragraph of paragraphs) {
+            let removeLink = document.createElement('a');
+            removeLink.href = '#';
+            removeLink.textContent = 'Удалить';
+            paragraph.appendChild(removeLink);
+        }
+        let spans = parent.getElementsByTagName('span');
+        for (let span of spans) {
+            span.addEventListener('click', function() {
+                let input = document.createElement('input');
+                input.value = span.textContent;
+
+                input.addEventListener('blur', function() {
+                    span.textContent = this.value;
+                });
+
+                span.textContent = '';
+                span.appendChild(input);
+                input.focus();
+            });
+        }
+    </script>
+
+
+    <p>2</p>
+    <div id="parent">
+        <p>text1</p>
+        <p>text2</p>
+        <p>text3</p>
+    </div>
+
+    <script>
+        let parent = document.getElementById('parent');
+        let paragraphs = parent.getElementsByTagName('p');
+        for (let paragraph of paragraphs) {
+            let span = document.createElement('span');
+            span.textContent = paragraph.textContent;
+            paragraph.textContent = '';
+            paragraph.appendChild(span);
+
+            span.addEventListener('click', function() {
+                let input = document.createElement('input');
+                input.value = span.textContent;
+
+                input.addEventListener('blur', function() {
+                    span.textContent = this.value;
+                });
+
+                span.textContent = '';
+                span.appendChild(input);
+                input.focus();
+            });
+        }
+        paragraphs = parent.getElementsByTagName('p');
+        for (let paragraph of paragraphs) {
+            let removeLink = document.createElement('a');
+            removeLink.href = '#';
+            removeLink.textContent = 'Удалить';
+            paragraph.appendChild(removeLink);
+        }
+    </script>
+    
+    <p>Стилизация элементов на JavaScript    </p>
+    <p>479</p>
+    <p>1</p>
+
+    <p>text1</p>
+    <p>text2</p>
+    <p>text3</p>
+
+    <script>
+        let paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(paragraph => {
+            let link = document.createElement('a');
+            link.href = '#';
+            link.textContent = 'Перечеркнуть';
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                paragraph.style.textDecoration = 'line-through';
+            });
+            paragraph.appendChild(link);
+        });
+    </script>
+   
+    <p>2</p>
+
+    <p>text1</p>
+    <p>text2</p>
+    <p>text3</p>
+    <script>
+        let paragraphs = document.querySelectorAll('p');
+
+        paragraphs.forEach(paragraph => {
+            let link = document.createElement('a');
+            link.href = '#';
+            link.textContent = 'Перечеркнуть';
+
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                paragraph.style.textDecoration = 'line-through';
+                paragraph.removeChild(link);
+            });
+
+            paragraph.appendChild(link);
+        });
+    </script>
+
+    <p>Кнопки для скрытия и показа элемента на JavaScript</p>
+    <p>480</p>
+
+    <p id="elem">text</p>
+    <input type="submit" id="toggle" value="ttt">
+
+    <script>
+        let elem = document.getElementById('elem');
+        let toggleButton = document.querySelector('#toggle');
+
+        toggleButton.addEventListener('click', function() {
+            if (elem.classList.contains('hidden')) {
+                elem.classList.remove('hidden');
+            } else {
+                elem.classList.add('hidden');
+            }
+        });
+    </script>
+    
+
+    <p>481</p>
+
+    <p id="elem1">1</p><button id="button" data-elem="elem1">toggle</button>
+    <p id="elem2">2</p><button id="button"data-elem="elem2">toggle</button>
+    <p id="elem3">3</p><button id="button"data-elem="elem3">toggle</button>
+
+    <script>
+        /*let buttons = document.querySelectorAll('button');
+
+        for (let button of buttons) {
+            button.addEventListener('click', function() {
+                let elem = document.querySelector('#' + this.dataset.elem);
+                elem.classList.toggle('hidden');
+            });
+        }
+
+        let buttons = document.querySelectorAll('button');
+        let elems = document.getElementsByTagName('p');
+
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', function() {
+                elems[i].classList.toggle('hidden');
+            });
+        }
+
+        let buttons = document.querySelectorAll('button');
+
+        for (let button of buttons) {
+            button.addEventListener('click', function() {
+                let paragraph = this.previousElementSibling;
+                if (paragraph) {
+                    paragraph.classList.toggle('hidden');
+                }
+            });
+        }*/
+        
+    </script>
+        <p>483</p>
+        <p>Активация элементов на JavaScript</p>
+        <p>1</p>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <style>
+            .active {
+            background: red;
+        }
+        </style>
+        <script>
+            let listItems = document.querySelectorAll('ul li');
+
+            listItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.add('active');
+                });
+            });
+
+        </script>
+
+
+        <p>2</p>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <style>
+            .active {
+            background: red;
+        }
+        </style>
+        <script>
+            let listItems = document.querySelectorAll('ul li');
+
+            listItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (this.classList.contains('active')) {
+                        this.classList.remove('active');
+                    } else {
+                        this.classList.add('active');
+                    }
+                });
+            });
+        </script>
+        -->
 </body>
 </html>
