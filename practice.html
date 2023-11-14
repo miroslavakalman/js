@@ -789,6 +789,306 @@
                 });
             });
         </script>
-        -->
-</body>
+       <p>1</p>
+        <p>Практика на изменение элементов на JavaScript</p>
+        <p>Дан массив. Выведите его элементы в виде списка ul.        </p>
+        <script>
+            let array = ['item1', 'item2', 'item3'];
+            let ul = document.createElement('ul');
+
+            array.forEach(item => {
+                let li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
+            });
+            document.body.appendChild(ul);
+        </script>
+         
+        <p>2</p>
+        <p>Модифицируйте предыдущую задачу так, чтобы по клику на любую li в ней появлялся инпут, с помощью которого ее можно будет поредактировать.</p>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <script>
+            let ul = document.querySelector('ul');
+            ul.addEventListener('click', function(e) {
+                if (e.target.tagName === 'LI') {
+                    let input = document.createElement('input');
+                    input.value = e.target.textContent;
+                    e.target.textContent = '';
+                    e.target.appendChild(input);
+                    input.focus();
+                    input.addEventListener('blur', function() {
+                        e.target.textContent = input.value;
+                    });
+                }
+            });
+        </script>
+        
+        <p>3</p>
+        <p>Модифицируйте предыдущую задачу так, чтобы под списком был инпут, с помощью которого можно будет добавить новый элемент в конец списка ul. Сделайте так, чтобы новые li также можно было редактировать.</p>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <script>
+            let ul = document.querySelector('ul');
+            let input = document.createElement('input');
+            input.placeholder = 'Enter a new item';
+            let addButton = document.createElement('button');
+            addButton.textContent = 'Add';
+            addButton.addEventListener('click', function() {
+                let newItem = document.createElement('li');
+                newItem.textContent = input.value;
+                ul.appendChild(newItem);
+                input.value = '';
+            });
+            document.body.appendChild(inputs);
+            document.body.appendChild(addButton);
+        </script>
+
+    <p>4</p>
+    <p>Модифицируйте предыдущую задачу так, чтобы в конце каждой li стояла ссылка 'удалить', с помощью которой можно будет удалить эту li из ul.    </p>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        let ul = document.querySelector('ul');
+        ul.addEventListener('click', function(e) {
+            if (e.target.tagName === 'LI') {
+                let deleteLink = document.createElement('a');
+                deleteLink.href = '#';
+                deleteLink.textContent = 'удалить';
+                deleteLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.target.parentNode.remove();
+                });
+                e.target.appendChild(deleteLink);
+            }
+        });
+    </script>
+    
+    <p>5</p>
+    <p>Модифицируйте предыдущую задачу так, чтобы в конце каждой li также стояла ссылка 'перечеркнуть', с помощью которой можно будет перечеркнуть текст данного тега li.</p>
+    <ul>
+        <li>5t</li>
+        <li>5t</li>
+        <li>5t</li>
+    </ul>
+    <script>
+        let ul = document.querySelector('ul');
+        ul.addEventListener('click', function(e) {
+            if (e.target.tagName === 'LI') {
+                let strikeLink = document.createElement('a');
+                strikeLink.href = '#';
+                strikeLink.textContent = 'перечеркнуть';
+                strikeLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.target.parentNode.style.textDecoration = 'line-through';
+                });
+                    e.target.appendChild(strikeLink);
+            }
+        });
+    </script>
+  
+    <p>6, 7, 8, 9</p>
+    <p>Дан следующий массив с работниками:</p>
+    <p>Выведите этих работников в HTML таблице.</p>
+
+    <script>
+        let employees = [
+    {name: 'employee1', age: 30, salary: 400},
+    {name: 'employee2', age: 31, salary: 500},
+    {name: 'employee3', age: 32, salary: 600},
+    ];
+
+    let table = document.createElement('table');
+    let thead = table.createTHead();
+    let tbody = table.createTBody();
+    
+    let headerRow = thead.insertRow();
+    for (let key in employees[0]) {
+        let th = document.createElement('th');
+        th.textContent = key;
+        headerRow.appendChild(th);
+    }
+
+    employees.forEach(employee => {
+        let row = tbody.insertRow();
+        for (let key in employee) {
+            let cell = row.insertCell();
+            cell.textContent = employee[key];
+        }
+    });
+
+    document.body.appendChild(table);
+
+    let tds = document.querySelectorAll('table td');
+
+    tds.forEach(td => {
+        td.addEventListener('click', function() {
+            let input = document.createElement('input');
+            input.value = td.textContent;
+            td.textContent = '';
+            td.appendChild(input);
+            input.focus();
+            input.addEventListener('blur', function() {
+                td.textContent = input.value;
+            });
+        });
+    });
+
+    let rows = document.querySelectorAll('table tbody tr');
+
+        rows.forEach(row => {
+            let deleteCell = row.insertCell();
+            let deleteLink = document.createElement('a');
+            deleteLink.href = '#';
+            deleteLink.textContent = 'удалить';
+            deleteCell.appendChild(deleteLink);
+
+            deleteLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                row.remove();
+            });
+        });
+
+        let addEmployeeButton = document.createElement('button');
+        addEmployeeButton.textContent = 'Добавить работника';
+        let nameInput = document.createElement('input');
+        nameInput.placeholder = 'Имя';
+        let ageInput = document.createElement
+
+        ('input');
+        ageInput.placeholder = 'Возраст';
+        let salaryInput = document.createElement('input');
+        salaryInput.placeholder = 'Зарплата';
+
+        addEmployeeButton.addEventListener('click', function() {
+            let name = nameInput.value;
+            let age = ageInput.value;
+            let salary = salaryInput.value;
+
+            if (name && age && salary) {
+                let table = document.querySelector('table');
+                let row = table.insertRow();
+                let nameCell = row.insertCell();
+                nameCell.textContent = name;
+                let ageCell = row.insertCell();
+                ageCell.textContent = age;
+                let salaryCell = row.insertCell();
+                salaryCell.textContent = salary;
+            }
+
+            nameInput.value = '';
+            ageInput.value = '';
+            salaryInput.value = '';
+        });
+
+        document.body.appendChild(nameInput);
+        document.body.appendChild(ageInput);
+        document.body.appendChild(salaryInput);
+        document.body.appendChild(addEmployeeButton);
+
+    </script>
+    
+    <style>
+        td {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+    }
+    </style>
+    
+    <p>Массив объектов и список</p>
+    <p>10, 11, 12, 13</p>
+    <p>Дан следующий массив с работниками:
+
+        let employees = [
+            {name: 'employee1', age: 30, salary: 400},
+            {name: 'employee2', age: 31, salary: 500},
+            {name: 'employee3', age: 32, salary: 600},
+        ];
+        Выведите на экран каждого работника в своем теге li тега ul.</p>
+        <script>
+            let employees = [
+            {name: 'employee1', age: 30, salary: 400},
+            {name: 'employee2', age: 31, salary: 500},
+            {name: 'employee3', age: 32, salary: 600},
+        ];
+
+        let ul = document.createElement('ul');
+
+        employees.forEach(employee => {
+            let li = document.createElement('li');
+            li.textContent = `Имя: ${employee.name}, Возраст: ${employee.age}, Зарплата: ${employee.salary}`;
+            ul.appendChild(li);
+        });
+
+        document.body.appendChild(ul);
+
+    ul.addEventListener('click', function(e) {
+    if (e.target.tagName === 'LI') {
+        let input = document.createElement('input');
+        input.value = e.target.textContent;
+        e.target.textContent = '';
+        e.target.appendChild(input);
+        input.focus();
+        input.addEventListener('blur', function() {
+            e.target.textContent = input.value;
+        });
+    }
+});
+
+    ul.addEventListener('click', function(e) {
+        if (e.target.tagName === 'LI') {
+            let deleteLink = document.createElement('a');
+            deleteLink.href = '#';
+            deleteLink.textContent = 'удалить';
+            deleteLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.target.parentNode.remove();
+            });
+            e.target.appendChild(deleteLink);
+        }
+    });
+
+    let form = document.createElement('form');
+    let nameInput = document.createElement('input');
+    nameInput.placeholder = 'Имя';
+    let ageInput = document.createElement('input');
+    ageInput.placeholder = 'Возраст';
+    let salaryInput = document.createElement('input');
+    salaryInput.placeholder = 'Зарплата';
+    let addButton = document.createElement('button');
+    addButton.textContent = 'Добавить';
+
+    addButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        let name = nameInput.value;
+        let age = ageInput.value;
+        let salary = salaryInput.value;
+        if (name && age && salary) {
+            let li = document.createElement('li');
+            li.textContent = `Имя: ${name}, Возраст: ${age}, Зарплата: ${salary}`;
+            ul.appendChild(li);
+            nameInput.value = '';
+            ageInput.value = '';
+            salaryInput.value = '';
+        }
+    });
+
+    form.appendChild(nameInput);
+    form.appendChild(ageInput);
+    form.appendChild(salaryInput);
+    form.appendChild(addButton);
+    document.body.appendChild(form);
+    </script>
+    -->
+</body> 
 </html>
