@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modules</title>
+  <script src="under.js"></script>
+</head>
+<body>
+
+  <!--<input type="number" id="input1" placeholder="1">
+  <input type="number" id="input2" placeholder="2">
+  <input type="number" id="input3" placeholder="3">
+  <button id="calculateBtn">решить</button>-->
+
+  <script>
+    /*;(function (selector1, selector2, selector3, btnSelector) {
+      let input1 = document.querySelector(selector1);
+      let input2 = document.querySelector(selector2);
+      let input3 = document.querySelector(selector3);
+      let calculateBtn = document.querySelector(btnSelector);
+
+      function calculateSum() {
+        let num1 = parseFloat(input1.value) || 0;
+        let num2 = parseFloat(input2.value) || 0;
+        let num3 = parseFloat(input3.value) || 0;
+
+        let sum = num1 + num2 + num3;
+        console.log('сумма:', sum);
+      }
+
+      calculateBtn.addEventListener('click', calculateSum);
+    })('#input1', '#input2', '#input3', '#calculateBtn');
+    
+
+    ;(function() {
+        let str1 = 'переменная модуля';
+        let str2 = 'переменная модуля';
+        let str3 = 'переменная модуля';
+
+        function func1() {
+            alert('функция модуля');
+        }
+
+        function func2() {
+            alert('функция модуля');
+        }
+
+        function func3() {
+            alert('функция модуля');
+        }
+
+        
+        window.exportedStr = str1;
+        window.exportedFunc1 = func1;
+        window.exportedFunc2 = func2;
+        })();
+
+        console.log(exportedStr); // 'переменная модуля'
+        exportedFunc1(); // 'функция модуля'
+        exportedFunc2(); // 'функция модуля'
+
+
+
+
+        ;(function() {
+            let str1 = 'переменная модуля';
+            let str2 = 'переменная модуля';
+            let str3 = 'переменная модуля';
+
+        function func1() {
+            alert('функция модуля');
+        }
+
+        function func2() {
+            alert('функция модуля');
+        }
+
+        function func3() {
+            alert('функция модуля');
+        }
+
+        function func4() {
+            alert('функция модуля');
+        }
+
+        function func5() {
+            alert('функция модуля');
+        }
+
+        window.exportedModule = {
+            variable1: str1,
+            variable2: str2,
+            method1: func1,
+            method2: func2,
+            method3: func3,
+            method4: func4,
+            method5: func5
+        };
+        })();
+
+        console.log(exportedModule.variable1); // 'переменная модуля'
+        exportedModule.method1(); // 'функция модуля'
+        
+
+
+        //503-1
+        ;(function() {
+        function avg1(arr) {
+            return sum(arr, 1) / arr.length;
+        }
+
+        function avg2(arr) {
+            return sum(arr, 2) / arr.length;
+        }
+
+        function avg3(arr) {
+            return sum(arr, 3) / arr.length;
+        }
+
+        // вспомогательная функция
+        function sum(arr, pow) {
+            let res = 0;
+
+            for (let elem of arr) {
+            res += elem ** pow;
+            }
+
+            return res;
+        }
+
+        window.math = { avg1, avg2, avg3 };
+        })();*/
+  </script>
+
+</body>
+</html>
